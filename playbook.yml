@@ -1,0 +1,5 @@
+- name: Run essentials task on all hosts
+  hosts: all
+  tasks:
+    - name: Include task from task folder
+      include_tasks: /home/aviellg/project/ansible-automated/tasks/essential.yml
