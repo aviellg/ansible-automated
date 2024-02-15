@@ -1,5 +1,22 @@
+#### first time run for new container
+- name: default settings for new machines (ssh, users, software, firewall )
+  hosts: all
+  become: yes
+  remote_user: root
+  roles: 
+    - system
+  ignore_unreachable: yes
+  ignore_errors: yes
+####### rolling configuration
 - name: Run essentials task on all hosts
   hosts: all
-  tasks:
-    - name: Include task from task folder
-      include_tasks: /home/aviellg/project/ansible-automated/tasks/essential.yml
+  become: yes
+  roles: 
+    - system
+#######  docker configuration 
+- name: install docker , docker compose , pip for using with ansible 
+  hosts: all
+  become: yes
+  roles: 
+    - geerlingguy.docker
+    - geerlingguy.pip

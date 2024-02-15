@@ -1,0 +1,28 @@
+#User + Key Setup
+- name: Ensure the necessary groupsexists
+  group:
+    name: "{{ item }}"
+    state: present
+  loop:
+      - "{{ admin_user }}"
+      - docker
+- name: Create a new regular user with sudo privileges
+  user:
+    name: "{{ admin_user }}"
+    state: present
+    groups: 
+      - wheel
+      - docker
+      - users
+
+    append: true
+    create_home: true
+    shell: /bin/bash
+- name: Chmod the user home directory
+  file:
+    path: "/home/{{ admin_user }}"
+    state: directory
+    mode: 0755
+    owner: "{{ admin_user }}"
+    group: "{{ admin_user }}"
+    recurse: yes
