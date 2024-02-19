@@ -1,0 +1,16 @@
+    - name: Install acl package
+      become: true
+      apt:
+        name: acl
+        state: present
+        update_cache: yes
+
+    - name: Set permissions for docker folder and contents
+      become: true
+      acl:
+        path: "{{ docker_root_folder }}"
+        entity: docker
+        etype: group
+        permissions: rwx
+        state: present
+        recursive: yes

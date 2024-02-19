@@ -1,16 +1,21 @@
 
 - name: Set authorized key for remote user
   authorized_key:
-    user: "{{ ansible_user }}"
+    user: "{{ admin_user }}"
     state: present
     key: "{{ copy_local_key }}"
-- name: Disable password authentication for root
+
+- name: Configure sshd
   lineinfile:
-    path: /etc/ssh/sshd_config
+    path: "/etc/ssh/sshd_config"
+    regex: "^(#)?{{item.key}}"
+    line: "{{item.key}} {{item.value}}"
     state: present
-    regexp: '^#?PermitRootLogin'
-    line: 'PermitRootLogin no'
-  notify: restart ssh deamon
+  loop:
+    - { key: "PermitRootLogin", value: "no" }
+    - { key: "PasswordAuthentication", value: "no" } 
+  notify:
+    - restart ssh deamon
 #UFW Setup
 - name: UFW - Allow SSH connections
   ufw:

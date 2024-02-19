@@ -1,2 +1,2 @@
 # ansible-automated
-automated setup to set homelab 
+idea : automatically configure homelab
