@@ -1,2 +1,3 @@
-- roles:
+- hosts: local
+  roles:
     - bootstrap
