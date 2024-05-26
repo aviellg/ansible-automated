@@ -1,10 +1,10 @@
-
 - name: Set authorized key for remote user
   authorized_key:
     user: "{{ bootstrap_admin_user }}"
     state: present
-    key: "{{ lookup('file', item) }}"
-  loop: "{{ lookup('fileglob', '{{ role_path }}/files/*.pub', wantlist=True) }}"
+    key: "{{ item.content }}"
+  with_fileglob:
+    - "{{ role_path }}/files/*.pub"
 - name: Configure sshd
   lineinfile:
     path: "/etc/ssh/sshd_config"
