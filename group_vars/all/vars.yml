@@ -1,5 +1,7 @@
 ---
-admin_user: aviellg
-copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-sys_packages: [ curl, nano, sudo, git, ufw, neofetch, python3-pip, qemu-guest-agent, aptitude ]
-docker_root_folder: "/home/{{ admin_user }}/docker"
+### user and system veriables  used for everything 
+bootstrap_admin_user: aviellg
+bootstrap_copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+bootstrap_sys_packages: [ curl, nano, sudo, git, ufw, neofetch, python3-pip, qemu-guest-agent, aptitude ]
+#### docker veriables 
+docker_root_folder: "/home/{{ bootstrap_admin_user }}/docker"

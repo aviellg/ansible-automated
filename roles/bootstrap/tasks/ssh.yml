@@ -1,9 +1,9 @@
 
 - name: Set authorized key for remote user
   authorized_key:
-    user: "{{ admin_user }}"
+    user: "{{ bootstrap_admin_user }}"
     state: present
-    key: "{{ copy_local_key }}"
+    key: "{{ bootstrap_copy_local_key }}"
 
 - name: Configure sshd
   lineinfile:
@@ -16,13 +16,3 @@
     - { key: "PasswordAuthentication", value: "no" } 
   notify:
     - restart ssh deamon
-#UFW Setup
-- name: UFW - Allow SSH connections
-  ufw:
-    rule: allow
-    name: OpenSSH
-- name: UFW - Deny all other incoming traffic by default
-  ufw:
-    state: enabled
-    policy: deny
-    direction: incoming

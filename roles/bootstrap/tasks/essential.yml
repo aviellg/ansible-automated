@@ -5,7 +5,7 @@
     upgrade: yes
     autoremove: yes
 - name: Install required system packages
-  apt: name={{ sys_packages }} state=latest
+  apt: name={{ bootstrap_sys_packages }} state=latest
 - name: Check if reboot required
   stat:
     path: /var/run/reboot-required

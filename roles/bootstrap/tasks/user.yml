@@ -4,11 +4,11 @@
     name: "{{ item }}"
     state: present
   loop:
-      - "{{ admin_user }}"
+      - "{{ bootstrap_admin_user }}"
       - docker
 - name: Create a new regular user with sudo privileges
   user:
-    name: "{{ admin_user }}"
+    name: "{{ bootstrap_admin_user }}"
     state: present
     groups: 
       - wheel
@@ -20,9 +20,9 @@
     shell: /bin/bash
 - name: Chmod the user home directory
   file:
-    path: "/home/{{ admin_user }}"
+    path: "/home/{{ bootstrap_admin_user }}"
     state: directory
     mode: 0755
-    owner: "{{ admin_user }}"
-    group: "{{ admin_user }}"
+    owner: "{{ bootstrap_admin_user }}"
+    group: "{{ bootstrap_admin_user }}"
     recurse: yes

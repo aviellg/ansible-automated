@@ -1,5 +1,0 @@
----
-admin_user: aviellg
-copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-sys_packages: [ curl, nano, sudo, git, ufw, neofetch, python3-pip, qemu-guest-agent, aptitude ]
-docker_root_folder: "/home/{{ admin_user }}/docker"
