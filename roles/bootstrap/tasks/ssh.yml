@@ -3,7 +3,7 @@
   authorized_key:
     user: "{{ bootstrap_admin_user }}"
     state: present
-    key: "{{ item }}"
+    key: "{{ lookup('file', item) }}"
   loop: "{{ lookup('fileglob', '{{ role_path }}/files/*.pub', wantlist=True) }}"
 - name: Configure sshd
   lineinfile:
