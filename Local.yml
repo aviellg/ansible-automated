@@ -1,4 +1,2 @@
-- connections: local
-  become: true
-  roles:
+- roles:
     - bootstrap
