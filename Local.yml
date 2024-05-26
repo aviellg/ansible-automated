@@ -1,5 +1,4 @@
-- hosts: localhost
-  connections: local
+- connections: local
   become: true
   roles:
     - bootstrap
