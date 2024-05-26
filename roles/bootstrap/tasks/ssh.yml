@@ -4,8 +4,7 @@
     user: "{{ bootstrap_admin_user }}"
     state: present
     key: "{{ item }}"
-  loop: "{{ lookup('fileglob', '{{ role_path }}/files/*.pub') }}"
-
+  loop: "{{ lookup('fileglob', '{{ role_path }}/files/*.pub', wantlist=True) }}"
 - name: Configure sshd
   lineinfile:
     path: "/etc/ssh/sshd_config"
