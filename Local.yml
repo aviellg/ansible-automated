@@ -1,5 +1,5 @@
 - name: first time configuration
+  connection: local
   become: true
-  tags: setup
   roles:
     - bootstrap
