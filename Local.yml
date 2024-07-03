@@ -1,5 +1,4 @@
 - name: first time configuration
-  hosts: localhost
   become: true
   tags: setup
   roles:
