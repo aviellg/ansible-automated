@@ -1,15 +1,18 @@
 ####
 - name: first time configuration
-  hosts: localhost
+  hosts: all
   become: true
   tags: setup
   roles:
     - bootstrap
+  tasks:
+    - command: ansible-galaxy install -r requirements.yml
 #######  docker configuration 
 - name: install docker , docker compose , pip for using with ansible 
   hosts: all
   become: false
+  tags: docker
   roles: 
-    #- geerlingguy.docker
-    #- geerlingguy.pip
+    - geerlingguy.docker
+    - geerlingguy.pip
     - docker
