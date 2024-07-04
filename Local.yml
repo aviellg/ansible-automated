@@ -1,5 +1,5 @@
 - name: first time configuration
-  connection: local
+  host: local
   become: true
   roles:
     - bootstrap
