@@ -11,5 +11,4 @@ test22.lan
 kasmct.lan
 129.159.144.58
 menualct.lan
-[local]
 localhost ansible_connection=local
