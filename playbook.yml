@@ -8,6 +8,7 @@
   tasks:
     - command: ansible-galaxy install -r requirements.yml
 #######  docker configuration 
+
 - name: install docker , docker compose , pip for using with ansible 
   hosts: all
   become: false
