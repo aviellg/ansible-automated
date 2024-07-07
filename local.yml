@@ -4,3 +4,5 @@
   tasks:
     - name: Install required roles
       ansible.builtin.command: ansible-galaxy install -r requirements.yml
+    - name: Include playbook2
+      include: playbook.yml
