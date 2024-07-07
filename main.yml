@@ -1,0 +1,6 @@
+  tasks:
+    - name: Include playbook1
+      include: local.yml
+
+    - name: Include playbook2
+      include: playbook.yml

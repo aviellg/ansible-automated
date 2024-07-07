@@ -1,16 +1,10 @@
-####
--  pre_tasks:
-    - name: Install required roles
-      ansible.builtin.command: ansible-galaxy install -r requirements.yml 
-      
+####      
 - name: first time configuration
   hosts: all
   become: true
   tags: setup
   roles:
     - bootstrap
-  tasks:
-    - command: ansible-galaxy install -r requirements.yml
 #######  docker configuration 
 
 - name: install docker , docker compose , pip for using with ansible 
