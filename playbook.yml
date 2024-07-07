@@ -1,4 +1,8 @@
 ####
+-  pre_tasks:
+    - name: Install required roles
+      ansible.builtin.command: ansible-galaxy install -r requirements.yml 
+      
 - name: first time configuration
   hosts: all
   become: true
