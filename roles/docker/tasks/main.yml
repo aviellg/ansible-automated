@@ -1,4 +1,0 @@
----
-- include_tasks: compose.yml
-- include_tasks: traefik.yml
-

@@ -1,4 +1,0 @@
-- name: restart ssh deamon
-  service: 
-    name: sshd
-    state: restarted

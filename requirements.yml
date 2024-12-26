@@ -1,3 +1,6 @@
+---
 roles:
- - name: geerlingguy.docker
- - name: geerlingguy.pip
+  - src: https://github.com/aviellg/ansible-role-docker
+  - src: https://github.com/aviellg/ansible-role-traefik
+  - name: geerlingguy.docker
+  - name: geerlingguy.pip
