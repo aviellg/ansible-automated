@@ -20,6 +20,7 @@ bootstrap_install_list:
   - python3-pip
   - qemu-guest-agent
   - aptitude
+  - acl
   
 bootstrap_admin_user: autoadmin
 
@@ -44,4 +45,4 @@ http_password: "{{ vault_http_password }}"
 cloudflare_dns_api_token: "{{ vault_cloudflare_dns_api_token }}"
 docker_privileged_mode: false # Set to true to run traefik in privileged mode true\vm  false\container
 use_staging: false  # Set to true to use staging certificates
-reset_acme: false  # Set to true to reset the acme.json file
+reset_acme: true  # Set to true to reset the acme.json file
