@@ -53,6 +53,7 @@ compose_files:
   - docker-compose.traefik.yml
   - docker-compose.portainer.yml
   - docker-compose.gamepanel.yml
+  - docker-compose.cloudflare-ddns.yml
 
 # Game Panel Role Variables
 gamepanel_db_name: panel
